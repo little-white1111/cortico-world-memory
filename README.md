@@ -1,6 +1,6 @@
 # cortico-world-memory
 
-把本地记忆引擎 **灵枢（`dsh-memory`）** 接成 Coo / Coopanion 的唯一长期记忆：
+把本地记忆引擎 **灵枢（[`dsh-memory`](https://github.com/FuRongJun-1999/dsh-memory)）** 接成 Coo / Coopanion 的唯一长期记忆：
 一个 World、一个真源，写入、召回、身份、审核、生活状态都在同一条链上。
 
 > 状态：`0.1.0`（alpha）。只面向 **Cortico World API 6** 的宿主；当前实现依赖宿主的
@@ -42,12 +42,12 @@ Engine（stdio MCP）── md_cg.mcp_server ── md_cg 记忆操作系统
 - **Coo / Coopanion**：Cortico World API 6，并且宿主已应用 World 投影补丁
   （`projectOutbound`、`projectOutboundEpoch`、`onBatchCommitted`）。
   缺补丁时世界能启动，但热块、状态行、主动开口会静默失效。
-- **灵枢引擎**：`dsh-memory` 源码目录，Python 3，零第三方依赖。
+- **灵枢引擎**：[`dsh-memory`](https://github.com/FuRongJun-1999/dsh-memory) 源码目录，Python 3，零第三方依赖。
 - **Node.js**：`>= 22`（宿主直接加载 TypeScript 源码，本包无构建步骤）。
 
 ## 安装（开发模式）
 
-1. 克隆本仓库与 `dsh-memory`，记下两个绝对路径。
+1. 克隆本仓库与 [`dsh-memory`](https://github.com/FuRongJun-1999/dsh-memory)，记下两个绝对路径。
 
 2. 在 Coo 的扩展清单 `data/extensions/package.json` 里加入本地链接：
 
@@ -159,7 +159,7 @@ node --experimental-strip-types scripts/import-legacy.ts \
 | 依赖 | 要求 |
 | --- | --- |
 | Coo / Coopanion | Cortico World API 6；已应用 `projectOutbound` / `onBatchCommitted` / epoch 投影补丁 |
-| 灵枢引擎 | `dsh-memory`，Python 3 |
+| 灵枢引擎 | [`dsh-memory`](https://github.com/FuRongJun-1999/dsh-memory)，Python 3 |
 | Node.js | `>= 22` |
 
 Coo 升级会覆盖 `resources/app`，若你的宿主使用投影补丁，升级后需要重打；
