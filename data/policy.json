@@ -1,0 +1,18 @@
+{
+  "_comment": "本 World 的部署级写入策略（经 MDCG_POLICY_FILE 交给灵枢 md_cg/audit.py）。forbidden 13 条与灵枢包内默认策略逐字一致——凭据不入库这条不放宽。required（CCG 六要素）在此不收：六要素是「归档成文」的格式要求，而本 World 的 memory_remember 面向对话中的事实/约定/偏好，一条一句话，按六要素写会逼模型产出空壳结构，反而污染记忆。调整规则只需改本文件，无需改引擎代码；需要恢复灵枢默认严格口径时，把 required/required_kinds/required_labels 三项按 dsh-memory/data/policy.json 抄回即可。",
+  "forbidden": [
+    "-----BEGIN [A-Z ]*PRIVATE KEY-----[\\s\\S]*?-----END [A-Z ]*PRIVATE KEY-----",
+    "-----BEGIN [A-Z ]*PRIVATE KEY-----[\\s\\S]{0,8192}",
+    "\\bsk-[A-Za-z0-9_\\-]{20,}",
+    "\\bAKIA[0-9A-Z]{16}\\b",
+    "\\bgh[pousr]_[A-Za-z0-9]{20,}\\b",
+    "(?i)\\bapi[_-]?key\\s*[:=]\\s*[A-Za-z0-9_\\-]{16,}",
+    "(?i)\\b(app[_-]?secret|appsecret|client[_-]?secret|secret[_-]?key|access[_-]?key)\\s*[:=]?\\s*[A-Za-z0-9]{16,}",
+    "(?i)(?:(?<![A-Za-z0-9])(password|passwd|pwd)|(密码|口令))[ \\t]*[:=：]?[ \\t]*(?:是|为|等于|is)?[ \\t]*[:=：]?[ \\t]*[\"\\u201c\\u201d\\u300c\\u300d\\u2018\\u2019]?(?=[^\\s\"\\u201c\\u201d\\u300c\\u300d]*[0-9!@#$%^&*()_+\\-=\\[\\]{};:,.<>?/~`|\\\\])[^\\s\"\\u201c\\u201d\\u300c\\u300d]{6,}",
+    "(?i)\\bBearer\\s+[A-Za-z0-9._\\-]{20,}",
+    "[a-z][a-z0-9+.\\-]*://[^/\\s:@]+:[^/\\s@]+@",
+    "\\btk_[0-9a-f]{8,}\\b",
+    "mdcg1\\.[A-Za-z0-9._\\-]{20,}",
+    "(?i)(?:(?<![A-Za-z0-9])(password|passwd|pwd)|(密码|口令))[\\s]*(?:是|为|等于|is)[ \\t]*[:=：]?[ \\t]*[\"\\u201c\\u201d\\u300c\\u300d\\u2018\\u2019]?(?=[^\\s\"\\u201c\\u201d\\u300c\\u300d]*[0-9!@#$%^&*()_+\\-=\\[\\]{};:,.<>?/~`|\\\\])[^\\s\"\\u201c\\u201d\\u300c\\u300d]{6,}"
+  ]
+}

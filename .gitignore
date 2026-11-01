@@ -1,0 +1,18 @@
+# 依赖
+node_modules/
+
+# 冒烟与临时数据
+.smoke/
+.tmp-*/
+*.log
+
+# 构建产物（本包无构建步骤，留作兜底）
+dist/
+coverage/
+*.tsbuildinfo
+
+# 编辑器与系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

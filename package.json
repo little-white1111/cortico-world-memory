@@ -1,0 +1,46 @@
+{
+  "name": "cortico-world-memory",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Cortico World：灵枢（dsh-memory）作为唯一记忆引擎。单 World、单真源，注入位置与预算分层的工程结论来自 memory-lite 与 private-companion。",
+  "license": "MIT",
+  "author": "little-white1111",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little-white1111/cortico-world-memory.git"
+  },
+  "homepage": "https://github.com/little-white1111/cortico-world-memory#readme",
+  "bugs": {
+    "url": "https://github.com/little-white1111/cortico-world-memory/issues"
+  },
+  "keywords": [
+    "cortico",
+    "coo",
+    "world",
+    "memory",
+    "mcp",
+    "llm"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "smoke": "node --experimental-strip-types scripts/smoke.ts",
+    "import-legacy": "node --experimental-strip-types scripts/import-legacy.ts"
+  },
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "记忆（灵枢）"
+  },
+  "files": [
+    "src",
+    "prompts",
+    "data",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {}
+}
